@@ -135,13 +135,19 @@ namespace Nop.Web.Controllers
 
             var model = new InstallModel
             {
-                AdminEmail = "admin@yourStore.com",
-                InstallSampleData = false,
+                AdminEmail = "admin@hydrofarm.com",
+                AdminPassword = "pass2word",
+                ConfirmPassword = "pass2word",
+                InstallSampleData = true,
                 InstallRegionalResources = _appSettings.Get<InstallationConfig>().InstallRegionalResources,
                 DisableSampleDataOption = _appSettings.Get<InstallationConfig>().DisableSampleData,
-                CreateDatabaseIfNotExists = false,
+                CreateDatabaseIfNotExists = true,
                 ConnectionStringRaw = false,
-                DataProvider = DataProviderType.SqlServer
+                DataProvider = DataProviderType.SqlServer,
+                DatabaseName = "nopcommerce",
+                ServerName = "nopcommerce_mssql_server",
+                Username = "sa",
+                Password = "nopCommerce_db_password"
             };
 
             PrepareAvailableDataProviders(model);

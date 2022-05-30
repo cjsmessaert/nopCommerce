@@ -2828,11 +2828,11 @@ namespace Nop.Services.Installation
                 PopupGridPageSize = 7,
                 GridPageSizes = "7, 15, 20, 50, 100",
                 RichEditorAdditionalSettings = null,
-                RichEditorAllowJavaScript = false,
-                RichEditorAllowStyleTag = false,
+                RichEditorAllowJavaScript = true,
+                RichEditorAllowStyleTag = true,
                 UseRichEditorForCustomerEmails = false,
                 UseRichEditorInMessageTemplates = false,
-                CheckCopyrightRemovalKey = true,
+                CheckCopyrightRemovalKey = false,
                 UseIsoDateFormatInJsonResult = true,
                 ShowDocumentationReferenceLinks = true
             });
