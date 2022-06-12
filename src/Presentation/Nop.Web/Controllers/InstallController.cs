@@ -143,10 +143,15 @@ namespace Nop.Web.Controllers
                 DisableSampleDataOption = _appSettings.Get<InstallationConfig>().DisableSampleData,
                 CreateDatabaseIfNotExists = true,
                 ConnectionStringRaw = false,
-                DataProvider = DataProviderType.SqlServer,
+                
+                //DataProvider = DataProviderType.SqlServer,
+                //ServerName = "nopcommerce_mssql_server",
+                //Username = "sa",
+                DataProvider = DataProviderType.PostgreSQL,
+                ServerName = "nopcommerce_postgres_server",
+                Username = "postgres",
+
                 DatabaseName = "nopcommerce",
-                ServerName = "nopcommerce_mssql_server",
-                Username = "sa",
                 Password = "nopCommerce_db_password"
             };
 

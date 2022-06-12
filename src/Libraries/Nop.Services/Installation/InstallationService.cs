@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
 using System.Linq;
@@ -14,6 +13,7 @@ using Nop.Core.Domain.Blogs;
 using Nop.Core.Domain.Catalog;
 using Nop.Core.Domain.Cms;
 using Nop.Core.Domain.Common;
+using System;
 using Nop.Core.Domain.Customers;
 using Nop.Core.Domain.Directory;
 using Nop.Core.Domain.Discounts;
@@ -2786,15 +2786,15 @@ namespace Nop.Services.Installation
             {
                 UseSystemEmailForContactUsForm = true,
 
-                DisplayJavaScriptDisabledWarning = false,
-                Log404Errors = true,
+                DisplayJavaScriptDisabledWarning = true,
+                Log404Errors = false,
                 BreadcrumbDelimiter = "/",
                 BbcodeEditorOpenLinksInNewWindow = false,
-                PopupForTermsOfServiceLinks = true,
+                PopupForTermsOfServiceLinks = false,
                 JqueryMigrateScriptLoggingActive = false,
                 UseResponseCompression = true,
                 FaviconAndAppIconsHeadCode = "<link rel=\"apple-touch-icon\" sizes=\"180x180\" href=\"/icons/icons_0/apple-touch-icon.png\"><link rel=\"icon\" type=\"image/png\" sizes=\"32x32\" href=\"/icons/icons_0/favicon-32x32.png\"><link rel=\"icon\" type=\"image/png\" sizes=\"192x192\" href=\"/icons/icons_0/android-chrome-192x192.png\"><link rel=\"icon\" type=\"image/png\" sizes=\"16x16\" href=\"/icons/icons_0/favicon-16x16.png\"><link rel=\"manifest\" href=\"/icons/icons_0/site.webmanifest\"><link rel=\"mask-icon\" href=\"/icons/icons_0/safari-pinned-tab.svg\" color=\"#5bbad5\"><link rel=\"shortcut icon\" href=\"/icons/icons_0/favicon.ico\"><meta name=\"msapplication-TileColor\" content=\"#2d89ef\"><meta name=\"msapplication-TileImage\" content=\"/icons/icons_0/mstile-144x144.png\"><meta name=\"msapplication-config\" content=\"/icons/icons_0/browserconfig.xml\"><meta name=\"theme-color\" content=\"#ffffff\">",
-                EnableHtmlMinification = true,
+                EnableHtmlMinification = false,
                 RestartTimeout = NopCommonDefaults.RestartTimeout,
                 HeaderCustomHtml = string.Empty,
                 FooterCustomHtml = string.Empty
@@ -2873,7 +2873,7 @@ namespace Nop.Services.Installation
                 ShowCategoryProductNumber = false,
                 ShowCategoryProductNumberIncludingSubcategories = false,
                 CategoryBreadcrumbEnabled = true,
-                ShowShareButton = true,
+                ShowShareButton = false,
                 PageShareCode = "<!-- AddThis Button BEGIN --><div class=\"addthis_toolbox addthis_default_style \"><a class=\"addthis_button_preferred_1\"></a><a class=\"addthis_button_preferred_2\"></a><a class=\"addthis_button_preferred_3\"></a><a class=\"addthis_button_preferred_4\"></a><a class=\"addthis_button_compact\"></a><a class=\"addthis_counter addthis_bubble_style\"></a></div><script src=\"http://s7.addthis.com/js/250/addthis_widget.js#pubid=nopsolutions\"></script><!-- AddThis Button END -->",
                 ProductReviewsMustBeApproved = false,
                 OneReviewPerProductFromCustomer = false,
@@ -3105,7 +3105,7 @@ namespace Nop.Services.Installation
                 TwitterLink = "https://twitter.com/nopCommerce",
                 YoutubeLink = "https://www.youtube.com/user/nopCommerce",
                 InstagramLink = "https://www.instagram.com/nopcommerce_official",
-                HidePoweredByNopCommerce = false
+                HidePoweredByNopCommerce = true
             });
 
             await settingService.SaveSettingAsync(new ExternalAuthenticationSettings
@@ -3117,7 +3117,7 @@ namespace Nop.Services.Installation
 
             await settingService.SaveSettingAsync(new RewardPointsSettings
             {
-                Enabled = true,
+                Enabled = false,
                 ExchangeRate = 1,
                 PointsForRegistration = 0,
                 RegistrationPointsValidity = 30,
@@ -3227,7 +3227,7 @@ namespace Nop.Services.Installation
             {
                 EncryptionKey = CommonHelper.GenerateRandomDigitCode(16),
                 AdminAreaAllowedIpAddresses = null,
-                HoneypotEnabled = false,
+                HoneypotEnabled = true,
                 HoneypotInputName = "hpinput",
                 AllowNonAsciiCharactersInHeaders = true
             });
@@ -3313,7 +3313,7 @@ namespace Nop.Services.Installation
 
             await settingService.SaveSettingAsync(new BlogSettings
             {
-                Enabled = true,
+                Enabled = false,
                 PostsPageSize = 10,
                 AllowNotRegisteredUsersToLeaveComments = true,
                 NotifyAboutNewBlogComments = false,
