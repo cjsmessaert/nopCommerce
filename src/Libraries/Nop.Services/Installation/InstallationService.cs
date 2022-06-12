@@ -9106,7 +9106,8 @@ namespace Nop.Services.Installation
                     Name = "Send emails",
                     Seconds = 60,
                     Type = "Nop.Services.Messages.QueuedMessagesSendTask, Nop.Services",
-                    Enabled = true,
+                    //Enabled = true,
+                    Enabled = false,
                     LastEnabledUtc = lastEnabledUtc,
                     StopOnError = false
                 },
@@ -9115,7 +9116,8 @@ namespace Nop.Services.Installation
                     Name = "Keep alive",
                     Seconds = 300,
                     Type = "Nop.Services.Common.KeepAliveTask, Nop.Services",
-                    Enabled = true,
+                    //Enabled = true,
+                    Enabled = false,
                     LastEnabledUtc = lastEnabledUtc,
                     StopOnError = false
                 },
@@ -9124,7 +9126,8 @@ namespace Nop.Services.Installation
                     Name = "Delete guests",
                     Seconds = 600,
                     Type = "Nop.Services.Customers.DeleteGuestsTask, Nop.Services",
-                    Enabled = true,
+                    //Enabled = true,
+                    Enabled = false,
                     LastEnabledUtc = lastEnabledUtc,
                     StopOnError = false
                 },
@@ -9151,7 +9154,8 @@ namespace Nop.Services.Installation
                     //60 minutes
                     Seconds = 3600,
                     Type = "Nop.Services.Directory.UpdateExchangeRateTask, Nop.Services",
-                    Enabled = true,
+                    //Enabled = true,
+                    Enabled = false,
                     LastEnabledUtc = lastEnabledUtc,
                     StopOnError = false
                 },

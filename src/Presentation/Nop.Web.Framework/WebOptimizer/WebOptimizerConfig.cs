@@ -21,12 +21,12 @@ namespace Nop.Web.Framework.WebOptimizer
         /// <summary>
         /// A value indicating whether JS file bundling and minification is enabled
         /// </summary>
-        public bool EnableJavaScriptBundling { get; private set; } = true;
+        public bool EnableJavaScriptBundling { get; private set; } = false;
 
         /// <summary>
         /// A value indicating whether CSS file bundling and minification is enabled
         /// </summary>
-        public bool EnableCssBundling { get; private set; } = true;
+        public bool EnableCssBundling { get; private set; } = false;
 
         /// <summary>
         /// Gets or sets a suffix for the js-file name of generated bundles

@@ -136,23 +136,41 @@ namespace Nop.Web.Controllers
             var model = new InstallModel
             {
                 AdminEmail = "admin@hydrofarm.com",
-                AdminPassword = "pass2word",
-                ConfirmPassword = "pass2word",
+                // AdminPassword = "pass2word",
+                // ConfirmPassword = "pass2word",
                 InstallSampleData = true,
                 InstallRegionalResources = _appSettings.Get<InstallationConfig>().InstallRegionalResources,
                 DisableSampleDataOption = _appSettings.Get<InstallationConfig>().DisableSampleData,
                 CreateDatabaseIfNotExists = true,
-                ConnectionStringRaw = false,
-                
+                //ConnectionStringRaw = false,
+
+                // randomizes database name
+                DatabaseName = "nopcommerce_" + DateTime.Now.Ticks.ToString(),
+
+                // sqlserver
                 //DataProvider = DataProviderType.SqlServer,
                 //ServerName = "nopcommerce_mssql_server",
                 //Username = "sa",
-                DataProvider = DataProviderType.PostgreSQL,
-                ServerName = "nopcommerce_postgres_server",
-                Username = "postgres",
-
-                DatabaseName = "nopcommerce",
-                Password = "nopCommerce_db_password"
+                
+                // mysql/mariadb docker
+                DataProvider = DataProviderType.MySql,
+                // use IP address, localhost not resolving correctly :-(
+                //ServerName = "localhost:55000",
+                //ServerName = "127.0.0.1:55000",
+                ServerName = "127.0.0.1:55002",
+                Username = "root",
+                //Password = "mysqlpw"
+                Password = "mariadbpw",
+                
+                // mysql/mariadb seem to work better with this construct
+                ConnectionStringRaw = true,
+                ConnectionString = "Data Source=localhost;Port=55002;Initial Catalog=nopcommerce;Persist Security Info=True;User ID=root;Password=mariadbpw"
+                
+                // postgres docker
+                // DataProvider = DataProviderType.PostgreSQL,
+                // ServerName = "localhost:55001",
+                // Username = "postgres",
+                // Password = "postgrespw"
             };
 
             PrepareAvailableDataProviders(model);
